@@ -40,8 +40,8 @@
                             </a>
 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Admins</a>
-                                <a class="dropdown-item" href="#">Users</a>
+                                <a class="dropdown-item" href="{{ route('users.index', ['type' => 'admin']) }}">Admins</a>
+                                <a class="dropdown-item" href="{{ route('users.index', ['type' => 'user']) }}">Users</a>
                             </div>
                         </li>
                     </ul>
