@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\{Role, Permission};
+use App\User;
 
 /**
  * class AclTableSeeder
@@ -28,11 +29,13 @@ class AclTableSeeder extends Seeder
             $inputRoles = $this->command->ask('Enter roles in comma separated format.', 'admin,user'); //? Ask Roles from input
 
             foreach (explode(',', $inputRoles) as $role) {
-                if ($role->isRole('admin')) { // Assign all permissions
-                    $role->syncPermissions($permissions->all());
+                $role = $roles->firstOrCreate(['name' => trim($role)]);
+
+                if ($role->name === 'admin') { // Assign all permissions
+                    $roles->syncPermissions($permissions->all());
                     $this->command->info('Admin granted all permissions');
                 } else { // For others by default only read access
-                    $role->syncPermissions($permissions->getUsersPermissions());
+                    $roles->syncPermissions($permissions->getUsersPermissions()->get());
                 }
 
                 $this->createUser($role); // Create one user for each role 
@@ -53,7 +56,7 @@ class AclTableSeeder extends Seeder
     {
         $user = factory(User::class)->create(['password' => 'secret'])->assignRole($role->name);
 
-        if ($role->isRole('admin')) {
+        if ($role->name === 'admin') {
             $this->command->info('Here are your admin details to login:');
             $this->command->warn($user->email);
             $this->command->warn('Password is "secret"');

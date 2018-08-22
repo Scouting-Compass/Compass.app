@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Acl;
 
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\Permission\Models\Permission;
 use App\Interfaces\Acl\Permissions;
 
@@ -20,5 +21,16 @@ class PermissionRepository extends Permission implements Permissions
     public function getDefault(): array 
     {
         return [];
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  Builder $query The Eloquent ORM query buider instance. 
+     * @return Builder
+     */
+    public function ScopeGetUsersPermissions(Builder $query): Builder
+    {
+        return $query->where('name', 'LIKE','view_%');
     }
 }

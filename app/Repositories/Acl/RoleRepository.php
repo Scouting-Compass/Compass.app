@@ -12,5 +12,13 @@ use App\Interfaces\Acl\RolesInterface;
  */
 class RoleRepository extends Role implements RolesInterface
 {
-
+    /**
+     * Conditional for checking if the given role is admin.
+     * 
+     * @return bool
+     */
+    public function isAdmin(string $name): bool 
+    {
+        return $name === 'admin';
+    }
 }

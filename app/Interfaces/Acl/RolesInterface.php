@@ -10,7 +10,9 @@ namespace App\Interfaces\Acl;
 interface RolesInterface 
 {
     /**
-     * Conditional to check the g
+     * Conditional to check if the given role name is the same in the resource entity. 
+     * 
+     * @return bool
      */
-    public function isRole(string $name): bool
+    public function isAdmin(string $name): bool;
 }
