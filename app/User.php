@@ -6,15 +6,17 @@ use App\Interfaces\Users\FilterScopesInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Cog\Contracts\Ban\Bannable as BannableContract;
+use Cog\Laravel\Ban\Traits\Bannable;
 
 /**
  * Class User
  *  
  * @package App\User
- */
-class User extends Authenticatable implements FilterScopesInterface
+ */ 
+class User extends Authenticatable implements FilterScopesInterface, BannableContract
 {
-    use Notifiable, HasRoles;
+    use Notifiable, HasRoles, Bannable;
 
     /**
      * The attributes that are mass assignable.
