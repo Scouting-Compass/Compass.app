@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace Compass\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Repositories\Acl\RoleRepository;
-use App\Interfaces\Acl\RolesInterface;
+use Compass\Repositories\Acl\RoleRepository;
+use Compass\Interfaces\Acl\RolesInterface;
 
 /**
  * Class Role 
  * 
- * @package App\Models;
+ * @package Compass\Models;
  */
 class Role extends RoleRepository implements RolesInterface
 {

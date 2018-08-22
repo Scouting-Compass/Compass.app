@@ -1,13 +1,13 @@
 <?php 
 
-namespace App\Traits\Users; 
+namespace Compass\Traits\Users; 
 
 use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Trait FilterScopes 
  * 
- * @package App\Traits\Users\FilterScopes
+ * @package Compass\Traits\Users\FilterScopes
  */
 trait FilterScopes
 {

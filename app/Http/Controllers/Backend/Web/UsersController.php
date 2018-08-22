@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Web;
+namespace Compass\Http\Controllers\Backend\Web;
 
-use App\User;
+use Compass\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Compass\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 
 /**
  * Class UsersController 
  * 
- * @package App\Http\Controllers\Backend\Web
+ * @package Compass\Http\Controllers\Backend\Web
  */
 class UsersController extends Controller
 {

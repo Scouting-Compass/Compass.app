@@ -1,15 +1,15 @@
 <?php 
 
-namespace App\Repositories\Acl;
+namespace Compass\Repositories\Acl;
 
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Permission\Models\Permission;
-use App\Interfaces\Acl\Permissions;
+use Compass\Interfaces\Acl\Permissions;
 
 /**
  * Class PermissionRepository 
  * 
- * @package App\Repositories\Acl
+ * @package Compass\Repositories\Acl
  */
 class PermissionRepository extends Permission implements Permissions
 {

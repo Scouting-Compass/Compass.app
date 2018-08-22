@@ -1,11 +1,11 @@
 <?php 
 
-namespace App\Interfaces\Acl;
+namespace Compass\Interfaces\Acl;
 
 /**
  * Interface RolesInterface 
  * 
- * @package App\Interfaces\Acl
+ * @package Compass\Interfaces\Acl
  */
 interface RolesInterface 
 {

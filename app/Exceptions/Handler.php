@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace Compass\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

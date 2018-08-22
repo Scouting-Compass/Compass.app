@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Compass;
 
-use App\Traits\Users\FilterScopes;
-use App\Interfaces\Users\FilterScopesInterface;
+use Compass\Traits\Users\FilterScopes;
+use Compass\Interfaces\Users\FilterScopesInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class User
  *  
- * @package App\User
+ * @package Compass\User
  */ 
 class User extends Authenticatable implements FilterScopesInterface, BannableContract
 {

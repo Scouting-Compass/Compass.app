@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace Compass\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 /**
  * Class Kernel 
  * 
- * @package App\Console
+ * @package Compass\Console
  */
 class Kernel extends ConsoleKernel
 {

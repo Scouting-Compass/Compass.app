@@ -1,14 +1,14 @@
 <?php 
 
-namespace App\Repositories\Acl;
+namespace Compass\Repositories\Acl;
 
 use Spatie\Permission\Models\Role;
-use App\Interfaces\Acl\RolesInterface;
+use Compass\Interfaces\Acl\RolesInterface;
  
 /**
  * Class RoleRepository 
  * 
- * @package App\Repositories\Acl
+ * @package Compass\Repositories\Acl
  */
 class RoleRepository extends Role implements RolesInterface
 {

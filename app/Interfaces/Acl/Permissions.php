@@ -1,13 +1,13 @@
 <?php 
 
-namespace App\Interfaces\Acl;
+namespace Compass\Interfaces\Acl;
 
 use Illuminate\Database\Eloquent\Builder;
  
 /**
  * Interface permissions 
  * 
- * @package App\Interfaces\Acl
+ * @package Compass\Interfaces\Acl
  */
 interface Permissions 
 {

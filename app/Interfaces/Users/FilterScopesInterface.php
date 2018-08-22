@@ -1,13 +1,13 @@
 <?php 
 
-namespace App\Interfaces\Users;
+namespace Compass\Interfaces\Users;
 
 use Illuminate\Database\Eloquent\Builder;
  
 /**
  * Interface FilterScopesInterface
  * 
- * @package App\Interfaces\Users
+ * @package Compass\Interfaces\Users
  */
 interface FilterScopesInterface 
 {

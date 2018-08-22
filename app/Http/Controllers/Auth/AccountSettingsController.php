@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Compass\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Compass\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 
 /**
  * Class AccountSettingsController
  * 
- * @package App\Http\Controllers\Auth
+ * @package Compass\Http\Controllers\Auth
  */
 class AccountSettingsController extends Controller
 {

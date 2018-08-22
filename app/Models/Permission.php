@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Models;
+namespace Compass\Models;
 
-use App\Repositories\Acl\PermissionRepository;
-use App\Interfaces\Acl\Permissions;
+use Compass\Repositories\Acl\PermissionRepository;
+use Compass\Interfaces\Acl\Permissions;
 
 /**
  * Class Permission 
  * 
- * @package App\Models
+ * @package Compass\Models
  */
 class Permission extends PermissionRepository implements Permissions
 {
