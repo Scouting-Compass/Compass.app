@@ -56,20 +56,21 @@
                                 <a href="" class="nav-link"><i class="fe fe-bell"></i></a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fe fe-sign-out fe-power"></i>
-                                </a>
-        
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf {{-- Form request protection --}}
-                                </form>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="">Settings</a>
+                                    <a class="dropdown-item" href="#">Need help?</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" lass="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf {{-- Form request protection --}}
+                                    </form>
+                                </div>
                             </li>
                         @else
                             <li class="nav-item">
