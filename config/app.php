@@ -28,6 +28,22 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+     /*
+    |--------------------------------------------------------------------------
+    | Editor Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" of your editor that you use to 
+    | work on this application. The available options are: 
+    | 
+    | sublime, textmate, emacs, macvim, phpstorm, idea, vscode, atom
+    |
+    */
+
+    'editor' => env('EDITOR', 'vscode'),
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
