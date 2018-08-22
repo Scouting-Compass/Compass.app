@@ -4,66 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c553c4c16384e96dd10ff9b08a82fff4",
+    "content-hash": "cef502bce58324cac6fae485421c86f4",
     "packages": [
-        {
-            "name": "activismebe/database-layering",
-            "version": "0.34",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Misfits-BE/L5.x-database-layering.git",
-                "reference": "9d16cb498faec0ac9cf2c339be10f52aac84d2c2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Misfits-BE/L5.x-database-layering/zipball/9d16cb498faec0ac9cf2c339be10f52aac84d2c2",
-                "reference": "9d16cb498faec0ac9cf2c339be10f52aac84d2c2",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "5.4.*|5.5.*|5.6.*",
-                "illuminate/database": "5.4.*|5.5.*|5.6.*",
-                "illuminate/filesystem": "5.4.*|5.5.*|5.6.*",
-                "illuminate/support": "5.4.*|5.5.*|5.6.*",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.8",
-                "mockery/mockery": "dev-master@dev",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~5.7|~6.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "ActivismeBE\\DatabaseLayering\\Repositories\\Providers\\RepositoryProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ActivismeBE\\DatabaseLayering\\": "src/ActivismeBE/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Laravel Repositories",
-            "homepage": "https://www.activisme.be",
-            "keywords": [
-                "database",
-                "eloquent",
-                "laravel",
-                "repositories",
-                "repository"
-            ],
-            "time": "2018-04-08T21:32:31+00:00"
-        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -513,16 +455,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.33",
+            "version": "v5.6.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "8a708b989adc320c451ee639d812af81f884666b"
+                "reference": "66c9cf8119b422b71273271db1f12e20d74ad49b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/8a708b989adc320c451ee639d812af81f884666b",
-                "reference": "8a708b989adc320c451ee639d812af81f884666b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/66c9cf8119b422b71273271db1f12e20d74ad49b",
+                "reference": "66c9cf8119b422b71273271db1f12e20d74ad49b",
                 "shasum": ""
             },
             "require": {
@@ -648,7 +590,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-08-09T20:36:39+00:00"
+            "time": "2018-08-21T13:44:37+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1326,16 +1268,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "2.15.0",
+            "version": "2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "40cd73d227da96fa31bb4905f1f37444dee6d74a"
+                "reference": "364b48d59eba89700bc413a71ad3763ce3140d40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/40cd73d227da96fa31bb4905f1f37444dee6d74a",
-                "reference": "40cd73d227da96fa31bb4905f1f37444dee6d74a",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/364b48d59eba89700bc413a71ad3763ce3140d40",
+                "reference": "364b48d59eba89700bc413a71ad3763ce3140d40",
                 "shasum": ""
             },
             "require": {
@@ -1386,7 +1328,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2018-08-16T00:21:46+00:00"
+            "time": "2018-08-20T18:54:54+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -34,16 +34,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown">
-                            <a href="" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ __('Users') }}
-                            </a>
+                        @if (auth()->check() && Auth::user()->hasRole('admin'))
+                            <li class="nav-item dropdown">
+                                <a href="" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ __('Users') }}
+                                </a>
 
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('users.index', ['type' => 'admin']) }}">Admins</a>
-                                <a class="dropdown-item" href="{{ route('users.index', ['type' => 'user']) }}">Users</a>
-                            </div>
-                        </li>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('users.index', ['type' => 'admin']) }}">Admins</a>
+                                    <a class="dropdown-item" href="{{ route('users.index', ['type' => 'user']) }}">Users</a>
+                                </div>
+                            </li> 
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
