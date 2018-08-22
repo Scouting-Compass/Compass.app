@@ -2,12 +2,14 @@
 
 namespace App;
 
+use App\Traits\Users\FilterScopes;
 use App\Interfaces\Users\FilterScopesInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class User
@@ -16,7 +18,7 @@ use Cog\Laravel\Ban\Traits\Bannable;
  */ 
 class User extends Authenticatable implements FilterScopesInterface, BannableContract
 {
-    use Notifiable, HasRoles, Bannable;
+    use Notifiable, HasRoles, Bannable, FilterScopes, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

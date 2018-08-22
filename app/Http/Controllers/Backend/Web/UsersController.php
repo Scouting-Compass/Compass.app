@@ -35,14 +35,20 @@ class UsersController extends Controller
     /**
      * The Back-end view for the user malnagement. 
      *
+     * @param  Request $request The request information bag. (Used to apply filters.)
      * @return View
      */
     public function index(Request $request): View
     {
         switch ($request->get('filter')) {
-            default: $users = $this->users->simplePaginate(15); break;
+            case 'deactivated': $users = $this->users->deActivatedUsers(); break; 
+            case 'recent':      $users = $this->users->recentUsers();      break;
+            case 'deleted':     $users = $this->users->deletedUsers();     break;
+            case 'banned':      $users = $this->users->adminUsers();       break;
+
+            default: $users = $this->users; break; //! No valid filter is given or the user wants all the users.
         }
 
-        return view('backend.users.index', ['users' => $users]); 
+        return view('backend.users.index', ['users' => $users->simplePaginate(15)]); 
     }
 }

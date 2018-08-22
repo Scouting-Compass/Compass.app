@@ -14,7 +14,7 @@ interface FilterScopesInterface
     /**
      * The where clause for the deactivated users. 
      * 
-     * @param  Builder The Eloquent ORM query buider instance.
+     * @param  Builder $qeury The Eloquent ORM query buider instance.
      * @return Builder
      */
     public function scopeDeactivatedUsers(Builder $query): Builder;
@@ -22,7 +22,7 @@ interface FilterScopesInterface
     /**
      * The where clause for the soft deleted users in the application. 
      * 
-     * @param  Builder The Eloquent ORM query buider instance.
+     * @param  Builder $query The Eloquent ORM query buider instance.
      * @return Builder
      */
     public function scopeDeletedUsers(Builder $query): Builder;
@@ -30,15 +30,15 @@ interface FilterScopesInterface
     /**
      * The where clause for the recent created users in the application. 
      * 
-     * @param  Builder The Eloquent ORM query buider instance.
+     * @param  Builder $query The Eloquent ORM query buider instance.
      * @return Builder
      */
     public function scopeRecentUsers(Builder $query): Builder; 
 
     /**
-     * THe where clause for the administrator users in the application. 
+     * The where clause for the administrator users in the application. 
      * 
-     * @param  Builder The Eloquent ORM query buider instance.
+     * @param  Builder $query The Eloquent ORM query buider instance.
      * @return Builder
      */
     public function scopeAdminUsers(Builder $query): Builder;
