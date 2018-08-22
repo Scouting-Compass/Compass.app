@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Interfaces\Users\FilterScopesInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
@@ -11,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
  *  
  * @package App\User
  */
-class User extends Authenticatable
+class User extends Authenticatable implements FilterScopesInterface
 {
     use Notifiable, HasRoles;
 

@@ -36,14 +36,7 @@
                     <ul class="navbar-nav mr-auto">
                         @if (auth()->check() && Auth::user()->hasRole('admin'))
                             <li class="nav-item dropdown">
-                                <a href="" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ __('Users') }}
-                                </a>
-
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('users.index', ['type' => 'admin']) }}">Admins</a>
-                                    <a class="dropdown-item" href="{{ route('users.index', ['type' => 'user']) }}">Users</a>
-                                </div>
+                                <a class="nav-link" href="{{ route('users.index') }}">{{ __('Users') }}</a>
                             </li> 
                         @endif
                     </ul>
@@ -62,10 +55,11 @@
                                 </a>
 
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="">Settings</a>
-                                    <a class="dropdown-item" href="#">Need help?</a>
+                                    <a class="dropdown-item" href=""><i class="fe fe-sliders mr-1 tw-text-grey-darker"></i> Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="fe fe-help-circle mr-1 tw-text-grey-darker"></i> Need help?</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" lass="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                    <a class="dropdown-item" lass="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fe fe-power mr-1 tw-text-red"></i> Logout</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf {{-- Form request protection --}}
@@ -73,13 +67,8 @@
                                 </div>
                             </li>
                         @else
-                            <li class="nav-item">
-                                <a href="{{ route('login') }}" class="nav-link">Login</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ route('register') }}" class="nav-link">Register</a>
-                            </li>
+                            <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                            <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
                         @endguest
                     </ul>
                 </div>

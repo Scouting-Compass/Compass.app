@@ -11549,8 +11549,48 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
 }
 
-.fe-sign-out {
-  color: #e3342f;
+.page-header {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+.page-title-icon {
+  color: #9aa0ac;
+  font-size: 1.25rem;
+}
+
+.page-subtitle {
+  font-size: .8125rem;
+  color: #6e7687;
+  margin-left: 2rem;
+}
+
+.page-subtitle a {
+  color: inherit;
+}
+
+.page-options {
+  margin-left: auto;
 }
 
 /**

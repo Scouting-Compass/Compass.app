@@ -34,16 +34,15 @@ class UsersController extends Controller
 
     /**
      * The Back-end view for the user malnagement. 
-     * 
-     * @param  string $type The type from the users group. 
+     *
      * @return View
      */
-    public function index(string $type): View
+    public function index(Request $request): View
     {
-        if (in_array($type, ['user', 'admin'])) {
-            $this->users->role($type);
+        switch ($request->get('filter')) {
+            default: $users = $this->users->simplePaginate(15); break;
         }
 
-        return view('backend.users.index', ['users' => $this->users->simplePaginate(15)]); 
+        return view('backend.users.index', ['users' => $users]); 
     }
 }

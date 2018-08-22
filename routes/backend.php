@@ -14,4 +14,4 @@
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Users 
-Route::get('users/{type}', 'Backend\Web\UsersController@index')->name('users.index');
+Route::get('users', 'Backend\Web\UsersController@index')->name('users.index');
