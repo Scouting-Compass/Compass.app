@@ -20,3 +20,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+/**
+ * 3th party javascript
+ */
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});

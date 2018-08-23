@@ -10,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * Class User
@@ -34,6 +35,16 @@ class User extends Authenticatable implements FilterScopesInterface, BannableCon
      */
     protected $hidden = ['password', 'remember_token'];
 
+    /**
+     * Methid for tracking is the user is online. 
+     * 
+     * @return bool 
+     */
+    public function isOnline(): bool 
+    {
+        return Cache::has('user-is-online-' . $this->id);
+    }
+    
     /**
      * Method for salting the password in the database
      *

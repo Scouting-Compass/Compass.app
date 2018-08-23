@@ -33,7 +33,7 @@ class UsersController extends Controller
     }
 
     /**
-     * The Back-end view for the user malnagement. 
+     * The Back-end view for the user management. 
      *
      * @param  Request $request The request information bag. (Used to apply filters.)
      * @return View
@@ -44,7 +44,7 @@ class UsersController extends Controller
             case 'deactivated': $users = $this->users->deActivatedUsers(); break; 
             case 'recent':      $users = $this->users->recentUsers();      break;
             case 'deleted':     $users = $this->users->deletedUsers();     break;
-            case 'banned':      $users = $this->users->adminUsers();       break;
+            case 'admin':       $users = $this->users->adminUsers();       break;
 
             default: $users = $this->users; break; //! No valid filter is given or the user wants all the users.
         }

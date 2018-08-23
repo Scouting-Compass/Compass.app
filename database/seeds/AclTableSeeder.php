@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\{Role, Permission};
-use App\User;
+use Compass\Models\{Role, Permission};
+use Compass\User;
 
 /**
  * class AclTableSeeder

@@ -55,7 +55,7 @@
                                 </a>
 
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href=""><i class="fe fe-sliders mr-1 tw-text-grey-darker"></i> Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="fe fe-sliders mr-1 tw-text-grey-darker"></i> Settings</a>
                                     <a class="dropdown-item" href="#"><i class="fe fe-help-circle mr-1 tw-text-grey-darker"></i> Need help?</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" lass="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

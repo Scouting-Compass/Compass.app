@@ -14,6 +14,17 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+// Hyperlinks
+
+.no-underline {
+    text-decoration: none !important;
+}
+
+// Utility to remove the top border
+.border-remove-t {
+  border-top-width: 0;
+}
+
 // Page headings
 .page-header {
   display: -ms-flexbox;

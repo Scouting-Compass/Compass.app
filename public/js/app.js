@@ -13909,6 +13909,13 @@ var app = new Vue({
   el: '#app'
 });
 
+/**
+ * 3th party javascript
+ */
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
