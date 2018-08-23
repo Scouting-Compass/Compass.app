@@ -51,4 +51,18 @@ class UsersController extends Controller
 
         return view('backend.users.index', ['users' => $users->simplePaginate(15)]); 
     }
+
+    /**
+     * Method for soft-deleting a user in the application. 
+     * 
+     * @todo Implement route
+     * 
+     * @param  Request $reguest The request data information bag. 
+     * @param  User    $user    The resource model for the user entity. 
+     * @return View|RedirectResponse
+     */
+    public function destroy(Request $request, User $user)
+    {
+        //
+    }
 }

@@ -68,7 +68,7 @@
                                     <span class="pull-right">
                                         @if ($user->isNotBanned())
                                             <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-lock"></i></a>
-                                        @else {{-- User is deactivated inthe application --}}
+                                        @elseif ($user->isBanned()) {{-- User is deactivated inthe application --}}
                                             <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-unlock"></i></a>
                                         @endif
 
