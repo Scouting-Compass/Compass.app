@@ -63,6 +63,11 @@ class UsersController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        //
+        if ($request->isMethod('GET')) {
+            return view('backend.users.delete', compact('user'));
+        }
+
+        // IF DELETE method. Proceed to the delete method. 
+        // TODO: Implement deletion logic. 
     }
 }

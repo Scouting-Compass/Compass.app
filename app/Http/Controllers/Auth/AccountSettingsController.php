@@ -5,6 +5,7 @@ namespace Compass\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Compass\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 /**
  * Class AccountSettingsController
@@ -20,7 +21,7 @@ class AccountSettingsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth', 'forbid-banned-user']);
     }
 
     /**
@@ -28,7 +29,26 @@ class AccountSettingsController extends Controller
      * 
      * @return View
      */
-    public function index(): View
+    public function index(?string $type = null): View
+    {
+        return ($type === 'security' 
+            ? view("backend.account.settings-security") 
+            : view("backend.account.settings-information")
+        );
+    }
+
+    /**
+     * @return RedirectResponse
+     */
+    public function updateSecurity(): RedirectResponse
+    {
+
+    }
+
+    /**
+     * @return RedirectResponse
+     */
+    public function updateInformation(): RedirectResponse 
     {
 
     }

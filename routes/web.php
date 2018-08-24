@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Account configuration routes 
+Route::get('/profile-settings/{type?}', 'Auth\AccountSettingsController@index')->name('profile.settings');
