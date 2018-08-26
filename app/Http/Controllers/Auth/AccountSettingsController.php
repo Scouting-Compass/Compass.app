@@ -2,10 +2,12 @@
 
 namespace Compass\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
+use Compass\Http\Requests\Account\InformationValidator;
+use Illuminate\Contracts\Auth\Guard;
 use Compass\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Compass\Http\Requests\Account\SecurityValidator;
 
 /**
  * Class AccountSettingsController
@@ -15,18 +17,28 @@ use Illuminate\Http\RedirectResponse;
 class AccountSettingsController extends Controller
 {
     /**
+     * The Guard implementation.
+     *
+     * @var \Illuminate\Contracts\Auth\Guard
+     */
+    protected $auth;
+
+    /**
      * AccountSettingsController constructor 
-     * 
+     *
+     * @param  Guard $auth Contract for the authenticated user his details.
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
         $this->middleware(['auth', 'forbid-banned-user']);
+        $this->auth = $auth;
     }
 
     /**
      * The account settings view. 
-     * 
+     *
+     * @param  null|string $type The type for the view that is needed.
      * @return View
      */
     public function index(?string $type = null): View
@@ -38,18 +50,32 @@ class AccountSettingsController extends Controller
     }
 
     /**
+     * Update the authenticated user his password information.
+     *
+     * @param  SecurityValidator $input Form request class that handles the security validation.
      * @return RedirectResponse
      */
-    public function updateSecurity(): RedirectResponse
+    public function updateSecurity(SecurityValidator $input): RedirectResponse
     {
+        if ($this->auth->user()->update($input->all())) {
+            flash('<strong>Success!</strong> Your account security has been updated.')->success()->important();
+        }
 
+        return redirect()->route('profile.settings', ['type' => 'security']);
     }
 
     /**
+     * Update the authenticated user his account information.
+     *
+     * @param  InformationValidator $input Form request class that handles the information validation.
      * @return RedirectResponse
      */
-    public function updateInformation(): RedirectResponse 
+    public function updateInformation(InformationValidator $input): RedirectResponse
     {
+        if ($this->auth->user()->update($input->all())) {
+            flash('<strong>Success!</strong> Your account information has been updated.')->success()->important();
+        }
 
+        return redirect()->route('profile.settings', ['type' => 'information']);
     }
 }

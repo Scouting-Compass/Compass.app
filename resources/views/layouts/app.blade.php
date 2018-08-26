@@ -37,7 +37,11 @@
                         @if (auth()->check() && Auth::user()->hasRole('admin'))
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{ route('users.index') }}">{{ __('Users') }}</a>
-                            </li> 
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('helpdesk.index') }}">{{ __('Helpdesk') }}</a>
+                            </li>
                         @endif
                     </ul>
 
@@ -50,13 +54,17 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ route('profile.settings') }}"><i class="fe fe-sliders mr-1 tw-text-grey-darker"></i> Settings</a>
-                                    <a class="dropdown-item" href="#"><i class="fe fe-help-circle mr-1 tw-text-grey-darker"></i> Need help?</a>
+
+                                    @if (Auth::user()->hasRole('user'))
+                                        <a class="dropdown-item" href="#"><i class="fe fe-help-circle mr-1 tw-text-grey-darker"></i> Need help?</a>
+                                    @endif
+
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" lass="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fe fe-power mr-1 tw-text-red"></i> Logout</a>

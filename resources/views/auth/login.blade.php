@@ -8,8 +8,28 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
-                        @csrf
+                        @csrf {{-- form field protection --}}
+
+                        <div class="form-group row">
+
+                            <div class="offset-md-4 col-md-6">
+                                <a href="{{ url('auth/facebook') }}" class="btn btn-block btn-social btn-facebook">
+                                    <span class="fe fe-facebook"></span> <span class="text-white">Sign in with Facebook</span>
+                                </a>
+
+                                <a href="{{ url('auth/twitter') }}" class="btn btn-block btn-social btn-twitter">
+                                    <span class="fe fe-twitter"></span> <span class="text-white">Sign in with Twitter</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="offset-md-4 col-md-6">
+                                <hr class="mb-0 mt-0 border-grey">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

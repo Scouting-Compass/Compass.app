@@ -3,6 +3,7 @@
 namespace Compass\Http\Controllers\Auth;
 
 use Compass\Http\Controllers\Controller;
+use Compass\Traits\Users\SocialAuth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -18,7 +19,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, SocialAuth;
 
     /**
      * Where to redirect users after login.
