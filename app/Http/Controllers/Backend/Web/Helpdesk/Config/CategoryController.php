@@ -66,7 +66,7 @@ class CategoryController extends Controller
     public function store(CategoryValidation $input): RedirectResponse
     {
        if ($category = $this->categories->create($input->all())) {
-           $category->creator()->associate($input->user())->save(); //Assig authenticated user to the category.
+           $category->creator()->associate($input->user())->save(); // Assign authenticated user to the category.
        }
     }
 }

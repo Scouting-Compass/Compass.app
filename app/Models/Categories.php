@@ -5,7 +5,7 @@ namespace Compass\Models;
 use Compass\Interfaces\Helpdesk\CategoryInterface;
 use Compass\Repositories\Helpdesk\CategoryRepository;
 use Compass\User;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Categories
@@ -26,8 +26,8 @@ class Categories extends CategoryRepository implements CategoryInterface
      *
      * @return HasOne
      */
-    public function creator(): HasOne
+    public function creator(): BelongsTo
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

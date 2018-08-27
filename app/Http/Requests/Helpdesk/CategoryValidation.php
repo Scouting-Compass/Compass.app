@@ -11,9 +11,9 @@ class CategoryValidation extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return auth()->check() && auth()->user()->hasRole('admin');
     }
 
     /**
@@ -21,10 +21,12 @@ class CategoryValidation extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'name' => 'string|required|max:191|unique:categories',
+            'color' => 'string|required|max:10',
+            'type' => 'string|required|max:50',
         ];
     }
 }

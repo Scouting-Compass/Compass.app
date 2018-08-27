@@ -21,21 +21,25 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputName">Category name <span class="tw-text-red">*</span></label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Category name">
+                            <input type="text" class="form-control @error('name', 'is-invalid')" id="inputName" placeholder="Category name" @input('name')>
+                            @error('name')
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="inputColor">Category color <span class="tw-text-red">*</span></label>
-                            <input type="color" class="form-control" id="inputColor" placeholder="HEX value only supported">
+                            <input type="color" class="form-control @error('color', 'is-invalid')" id="inputColor" @input('color') placeholder="HEX value only supported">
+                            @error('color')
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="inputType">Category type <span class="tw-text-red">*</span></label>
 
-                        <select class="form-control" id="inputType" @input('type')>
+                        <select class="form-control @error('type', 'has-error')" id="inputType" @input('type')>
                             @options($types, 'type', 'draft')
                         </select>
+
+                        @error('type')
                     </div>
 
                     <hr class="mt-0 border-grey">
