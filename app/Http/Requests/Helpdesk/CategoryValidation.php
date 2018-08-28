@@ -32,16 +32,27 @@ class CategoryValidation extends FormRequest
         return array_merge($this->baseRules(), $this->methodSpecificRules());
     }
 
+    /**
+     * Basic validation rules.
+     *
+     * @return array
+     */
     private function baseRules(): array
     {
         return ['color' => 'string|required|max:10', 'type' => 'string|required|max:50',];
     }
 
+    /**
+     * Validation rules per request type?
+     *
+     * @return array
+     */
     private function methodSpecificRules(): array
     {
         switch ($this->method()) {
-            case 'POST': return ['name' => 'string|required|max:191|unique:categories'];
-            default:     return [];
+            case 'POST':    return ['name' => 'string|required|max:191|unique:categories'];
+            case 'PATCH':   return ['name' => 'required|string|max:191|unique:categories,name,'. $this->category->id];
+            default:        return [];
         }
     }
 }

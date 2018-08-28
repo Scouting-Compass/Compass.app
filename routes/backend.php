@@ -23,4 +23,5 @@ Route::get('helpdesk/dashboard','Backend\Web\Helpdesk\IndexController@index')->n
 Route::get('helpdesk/categories', 'Backend\Web\Helpdesk\Config\CategoryController@index')->name('helpdesk.categories.index');
 Route::get('helpdesk/categories/create', 'Backend\Web\Helpdesk\Config\CategoryController@create')->name('helpdesk.categories.create');
 Route::get('helpdesk/categories/edit/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@edit')->name('helpdesk.categories.edit');
+Route::patch('helpdesk/categories/edit/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@update')->name('helpdesk.categories.update');
 Route::post('helpdesk/categories/create', 'Backend\Web\Helpdesk\Config\CategoryController@store')->name('helpdesk.categories.store');

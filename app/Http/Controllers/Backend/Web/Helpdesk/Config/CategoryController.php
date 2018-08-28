@@ -81,7 +81,8 @@ class CategoryController extends Controller
      */
     public function edit(Categories $category)
     {
-        return view('backend.helpdesk.categories.edit', compact('category'));
+        $types = $this->categories->getTypes();
+        return view('backend.helpdesk.categories.edit', compact('category', 'types'));
     }
 
     /**
@@ -97,6 +98,6 @@ class CategoryController extends Controller
             flash("<strong>Success!</strong> The category has been updated.")->success();
         }
 
-        return redirect()->route('admin.categories.edit', $category);
+        return redirect()->route('helpdesk.categories.edit', $category);
     }
 }
