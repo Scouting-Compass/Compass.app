@@ -21,6 +21,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="border-top-0">#</th>
+                                    <th scope="col" class="border-top-0">Creator</th>
                                     <th scope="col" class="border-top-0">Name</th>
                                     <th scope="col" class="border-top-0">Type</th>
                                     <th scope="col" class="border-top-0">Created at</th>
@@ -32,17 +33,18 @@
                                 @forelse ($categories as $category) {{-- Loop through the categories --}}
                                     <tr>
                                         <td><strong>#{{ $category->id }}</strong></td>
+                                        <td>{{ $category->creator->name }}</td>
                                         <td><span style="color: {{ $category->color }};">{{ $category->name }}</span></td>
                                         <td>{{ $category->type }}</td>
                                         <td>{{ $category->created_at->diffForHumans() }}</td>
 
                                         <td> {{-- Options --}}
                                             <span class="pull-right">
-                                                <a href="" class="tw-text-grey">
+                                                <a href="{{ route('helpdesk.categories.edit', $category) }}" class="tw-text-grey no-underline">
                                                     <i class="fe fe-edit mr-1"></i>
                                                 </a>
 
-                                                <a href="" class="text-danger">
+                                                <a href="" class="text-danger no-underline">
                                                     <i class="fe fe-x-circle"></i>
                                                 </a>
                                             </span>
@@ -50,7 +52,7 @@
                                     </tr>
                                 @empty {{-- No categories are found --}}
                                     <tr>
-                                        <td colspan="5"><i><small class="text-muted">No categories found for the helpdesk.</small></i></td>
+                                        <td colspan="6"><i><small class="text-muted">No categories found for the helpdesk.</small></i></td>
                                     </tr>
                                 @endforelse {{-- END category loop --}}
                             </tbody>

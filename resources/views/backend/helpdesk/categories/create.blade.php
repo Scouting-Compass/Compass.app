@@ -18,6 +18,8 @@
                         <small class="float-right"><a href="{{ route('helpdesk.categories.index') }}">Category overview</a></small>
                     </h6>
 
+                    @include('flash::message') {{-- Flash session view partial --}}
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputName">Category name <span class="tw-text-red">*</span></label>

@@ -13914,6 +13914,10 @@ var app = new Vue({
  */
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
+
+  $('div.alert').not('.alert-important').delay(3000).fadeOut(350, function () {
+    $(this).alert('close');
+  });
 });
 
 /***/ }),

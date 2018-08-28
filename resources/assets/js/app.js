@@ -25,5 +25,9 @@ const app = new Vue({
  * 3th party javascript
  */
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350, function() {
+        $(this).alert('close');
+    });
 });

@@ -34,6 +34,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            @if (auth()->check())
+                                <a href="" class="nav-link">My Locations</a>
+                            @else
+                                <a href="" class="nav-link">Locations</a>
+                            @endif
+                        </li>
+
                         @if (auth()->check() && Auth::user()->hasRole('admin'))
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{ route('users.index') }}">{{ __('Users') }}</a>

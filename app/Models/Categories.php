@@ -24,10 +24,10 @@ class Categories extends CategoryRepository implements CategoryInterface
     /**
      * Data relation for the category creator.
      *
-     * @return HasOne
+     * @return BelongsTo
      */
     public function creator(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault(['name' => 'unknown']);
     }
 }
