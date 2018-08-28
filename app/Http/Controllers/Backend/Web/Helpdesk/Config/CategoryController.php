@@ -69,7 +69,7 @@ class CategoryController extends Controller
     {
        if ($category = $this->categories->create($input->all())) {
            $category->creator()->associate($input->user())->save(); // Assign authenticated user to the category.
-           flash("<strong>Success!</strong> The category has been stored.")->success();
+           $this->flashSuccess('The category has been stored');
        }
 
        return redirect()->route('helpdesk.categories.create');
@@ -97,7 +97,7 @@ class CategoryController extends Controller
     public function update(CategoryValidation $input, Categories $category): RedirectResponse
     {
         if ($category->update($input->all())) {
-            flash("<strong>Success!</strong> The category has been updated.")->success();
+            $this->flashSuccess('The category has been updated');
         }
 
         return redirect()->route('helpdesk.categories.edit', $category);
@@ -115,7 +115,7 @@ class CategoryController extends Controller
     {
         if ($category->delete()) {
             $undoLink = '<a href="' . route('helpdesk.categories.undo', $category) . '">undo</a>';
-            flash("<strong>Success!</strong> The category has been deleted. {$undoLink}")->warning()->important();
+            $this->flashWarning("The category has been deleted. {$undoLink}")->important();
         }
 
         return redirect()->route('helpdesk.categories.index');
@@ -129,7 +129,7 @@ class CategoryController extends Controller
      */
     public function undoDeleteRoute(int $category): RedirectResponse
     {
-        flash('<strong>Info:</strong>' . 'The category has been restored');
+        $this->flashInfo('The category has been restored');
         return $this->restoreModel($category, new Categories(), 'helpdesk.categories.index');
     }
 }
