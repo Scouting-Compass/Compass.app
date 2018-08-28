@@ -53,12 +53,12 @@ class UsersController extends Controller
     }
 
     /**
-     * Method for soft-deleting a user in the application. 
-     * 
+     * Method for soft-deleting a user in the application.
+     *
      * @todo Implement route
-     * 
-     * @param  Request $reguest The request data information bag. 
-     * @param  User    $user    The resource model for the user entity. 
+     *
+     * @param  Request  $request    The class that holds all the request information.s:p;:p
+     * @param  User     $user       The resource model for the user entity.
      * @return View|RedirectResponse
      */
     public function destroy(Request $request, User $user)
