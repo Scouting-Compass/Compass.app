@@ -22,6 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name', 191)->unique();
             $table->string('color', 10);
             $table->string('type', '50');
+            $table->softDeletes();
             $table->timestamps();
 
             // Foreign keys constraints

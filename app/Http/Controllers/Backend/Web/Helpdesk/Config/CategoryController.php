@@ -6,8 +6,8 @@ use Compass\Http\Requests\Helpdesk\CategoryValidation;
 use Compass\Models\Categories;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Compass\Http\Controllers\Controller;
+use Mpociot\Reanimate\ReanimateModels;
 
 /**
  * Class CategoryController
@@ -16,6 +16,8 @@ use Compass\Http\Controllers\Controller;
  */
 class CategoryController extends Controller
 {
+    use ReanimateModels;
+
     /**
      * Holds the categories model
      *
@@ -42,7 +44,7 @@ class CategoryController extends Controller
      */
     public function index(): View
     {
-        $categories = $this->categories->orderBy('name', 'ASC')->simplePaginate('15');
+        $categories = $this->categories->withTrashed()->orderBy('name', 'ASC')->simplePaginate('15');
         return view('backend.helpdesk.categories.index', compact('categories'));
     }
 
@@ -99,5 +101,35 @@ class CategoryController extends Controller
         }
 
         return redirect()->route('helpdesk.categories.edit', $category);
+    }
+
+    /**
+     * Delete a resource (helpdesk category) in the storage.
+     *
+     * @throws \Exception Instance of ModelNotFoundException when no record is found.
+     *
+     * @param  Categories $category The model entity for the resource
+     * @return RedirectResponse
+     */
+    public function destroy(Categories $category): RedirectResponse
+    {
+        if ($category->delete()) {
+            $undoLink = '<a href="' . route('helpdesk.categories.undo', $category) . '">undo</a>';
+            flash("<strong>Success!</strong> The category has been deleted. {$undoLink}")->warning()->important();
+        }
+
+        return redirect()->route('helpdesk.categories.index');
+    }
+
+    /**
+     * Undo the delete for the helpdesk category in the storage.
+     *
+     * @param  int $category The resource entity form the resource
+     * @return RedirectResponse
+     */
+    public function undoDeleteRoute(int $category): RedirectResponse
+    {
+        flash('<strong>Info:</strong>' . 'The category has been restored');
+        return $this->restoreModel($category, new Categories(), 'helpdesk.categories.index');
     }
 }

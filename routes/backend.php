@@ -25,3 +25,5 @@ Route::get('helpdesk/categories/create', 'Backend\Web\Helpdesk\Config\CategoryCo
 Route::get('helpdesk/categories/edit/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@edit')->name('helpdesk.categories.edit');
 Route::patch('helpdesk/categories/edit/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@update')->name('helpdesk.categories.update');
 Route::post('helpdesk/categories/create', 'Backend\Web\Helpdesk\Config\CategoryController@store')->name('helpdesk.categories.store');
+Route::get('helpdesk/categories/undo/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@undoDeleteRoute')->name('helpdesk.categories.undo');
+Route::get('helpdesk/categories/delete/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@destroy')->name('helpdesk.categories.delete');

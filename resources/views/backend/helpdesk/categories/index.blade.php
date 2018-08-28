@@ -16,6 +16,8 @@
                         <small class="float-right"><a href="{{ route('helpdesk.categories.create') }}">Create category</a></small>
                     </h6>
 
+                    @include('flash::message') {{-- Flash session view partial --}}
+
                     <div class="table-responsive">
                         <table class="table table-sm @if (count($categories) > 0) table-hover @endif">
                             <thead>
@@ -35,7 +37,14 @@
                                         <td><strong>#{{ $category->id }}</strong></td>
                                         <td>{{ $category->creator->name }}</td>
                                         <td><span style="color: {{ $category->color }};">{{ $category->name }}</span></td>
-                                        <td>{{ $category->type }}</td>
+                                        <td>
+                                            @if ($category->trashed())
+                                                <span class="text-danger">deleted</span>
+                                            @else {{-- Else the category is not deleted --}}
+                                                {{ $category->type }}
+                                            @endif
+                                        </td>
+
                                         <td>{{ $category->created_at->diffForHumans() }}</td>
 
                                         <td> {{-- Options --}}
@@ -44,9 +53,15 @@
                                                     <i class="fe fe-edit mr-1"></i>
                                                 </a>
 
-                                                <a href="" class="text-danger no-underline">
-                                                    <i class="fe fe-x-circle"></i>
-                                                </a>
+                                                @if ($category->trashed()) {{-- Category has been deleted --}}
+                                                    <a href="{{ route('helpdesk.categories.undo', $category) }}" class="text-success no-underline">
+                                                        <i class="fe fe-rotate-ccw"></i>
+                                                    </a>
+                                                @else {{-- Category is not deleted --}}
+                                                    <a href="{{ route('helpdesk.categories.delete', $category) }}" class="text-danger no-underline">
+                                                        <i class="fe fe-x-circle"></i>
+                                                    </a>
+                                                @endif
                                             </span>
                                         </td> {{-- // Options --}}
                                     </tr>
