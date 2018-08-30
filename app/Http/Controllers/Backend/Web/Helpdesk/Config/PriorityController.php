@@ -79,7 +79,8 @@ class PriorityController extends Controller
     public function destroy(Priority $priority): RedirectResponse 
     {
         if ($priority->delete()) {
-            //
+            $undoLink = '<a href="'. route('helpdesk.priorities.undo', $priority) . '">undo</a>';
+            $this->flashWarning("The helpdesk priority has been deleted. {$undoLink}");
         }
 
         return redirect()->route('helpdesk.priorities.index');

@@ -27,3 +27,6 @@ Route::patch('helpdesk/categories/edit/{category}', 'Backend\Web\Helpdesk\Config
 Route::post('helpdesk/categories/create', 'Backend\Web\Helpdesk\Config\CategoryController@store')->name('helpdesk.categories.store');
 Route::get('helpdesk/categories/undo/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@undoDeleteRoute')->name('helpdesk.categories.undo');
 Route::get('helpdesk/categories/delete/{category}', 'Backend\Web\Helpdesk\Config\CategoryController@destroy')->name('helpdesk.categories.delete');
+
+// Helpdesk priorities routes 
+Route::get('helpdesk/priorities', 'Backend\Web\Helpdesk\Config\PriorityController@index')->name('helpdesk.priorities.index');
