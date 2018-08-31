@@ -43,7 +43,7 @@ class PriorityController extends Controller
     public function index(): View
     {
         $priorities = $this->priorities->withTrashed()->simplePaginate();
-        return view('backend.helpdesk.priorities', compact('priorities'));
+        return view('backend.helpdesk.priorities.index', compact('priorities'));
     }
 
     /**
