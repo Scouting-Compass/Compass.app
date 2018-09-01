@@ -5,6 +5,7 @@ namespace Compass\Http\Controllers\Backend\Web\Helpdesk;
 use Illuminate\Http\Request;
 use Compass\Http\Controllers\Controller;
 use Illuminate\View\View;
+use Compass\Models\Ticket;
 
 /**
  * Class IndexController
@@ -26,9 +27,10 @@ class IndexController extends Controller
     /**
      * Helpdesk dashboard page.
      *
+     * @param  Ticket $tickets The resource model for the helpdesk tickets.
      * @return View
      */
-    public function index(): View
+    public function index(Ticket $tickets): View
     {
         return view('backend.helpdesk.dashboard', compact('tickets'));
     }

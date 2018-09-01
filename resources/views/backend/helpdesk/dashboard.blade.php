@@ -30,8 +30,8 @@
                         </a>
 
                         <div>
-                            <h6 class="m-0">0 <small>Total tickets</small></h6>
-                            <small class="text-muted">0 created today</small>
+                            <h6 class="m-0">{{ $tickets->count() }} <small>Total tickets</small></h6>
+                            <small class="text-muted">{{ $tickets->today()->count() }} created today</small>
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                         </a>
 
                         <div>
-                            <h6 class="m-0">0 <small>Assigned tickets</small></h6>
-                            <small class="text-muted">0 assigned today</small>
+                            <h6 class="m-0">{{ $tickets->assigned()->count() }} <small>Assigned tickets</small></h6>
+                            <small class="text-muted">{{ $tickets->assigned()->today()->count() }} assigned today</small>
                         </div>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
                         </a>
 
                         <div>
-                            <h6 class="m-0">0 <small>Open tickets</small></h6>
-                            <small class="text-muted">0 opened today</small>
+                            <h6 class="m-0">{{ $tickets->isOpen(true)->count() }} <small>Open tickets</small></h6>
+                            <small class="text-muted">{{ $tickets->isOpen(true)->today()->count() }} opened today</small>
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,8 @@
                         </a>
 
                         <div>
-                            <h6 class="m-0">0 <small>Closed tickets</small></h6>
-                            <small class="text-muted">0 closed today</small>
+                            <h6 class="m-0">{{ $tickets->isOpen(false)->count() }} <small>Closed tickets</small></h6>
+                            <small class="text-muted">{{ $tickets->isOpen(false)->today()->count() }} closed today</small>
                         </div>
                     </div>
                 </div>
