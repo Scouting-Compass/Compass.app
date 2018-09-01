@@ -50,7 +50,7 @@ class PriorityValidation extends FormRequest
     {
         switch ($this->method()) {
             case 'POST':    return ['name' => 'required|string|max:191|unique:categories'];
-            case 'PATCH':   return ['name' => 'required|string|max:191|unique:categories,name'. $this->categories->id];
+            case 'PATCH':   return ['name' => 'required|string|max:191|unique:categories,name'. $this->priorities->id];
             default:        return [];
         }
     }

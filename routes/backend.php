@@ -31,4 +31,7 @@ Route::get('helpdesk/categories/delete/{category}', 'Backend\Web\Helpdesk\Config
 // Helpdesk priorities routes 
 Route::get('helpdesk/priorities', 'Backend\Web\Helpdesk\Config\PriorityController@index')->name('helpdesk.priorities.index');
 Route::get('helpdesk/priorities/create', 'Backend\Web\Helpdesk\Config\PriorityController@create')->name('helpdesk.priorities.create');
+Route::get('helpdesk/priorities/edit/{priority}', 'Backend\Web\Helpdesk\Config\PriorityController@edit')->name('helpdesk.priorities.edit');
+Route::get('helpdesk/priorities/delete/{priority}', 'Backend\Web\Helpdesk\Config\PriorityController@destroy')->name('helpdesk.priorities.delete');
+Route::get('Helpdesk/Priorities/undo/{priority}', 'Backend\Web\Helpdesk\Config\PriorityController@undo')->name('helpdesk.priorities.undo');
 Route::post('helpdesk/priorities/store', 'Backend\Web\Helpdesk\Config\PriorityController@store')->name('helpdesk.priorities.store');

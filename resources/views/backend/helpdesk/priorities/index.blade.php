@@ -35,6 +35,34 @@
                                         <td><strong>#{{ $priority->id }}</strong></td>
                                         <td>{{ $priority->creator->name }}</td>
                                         <td><span style="color: {{ $priority->color }};">{{ $priority->name }}</span></td>
+
+                                        <td>
+                                            @if ($priority->trashed())
+                                                <span class="text-danger">Deleted</span>
+                                            @else {{-- Priority is not deleted --}}
+                                                {{ ucfirst($priority->type) }}
+                                            @endif
+                                        </td>
+
+                                        <td>{{ $priority->created_at->diffForHumans() }}</td>
+
+                                        <td> {{-- Options --}}
+                                            <span class="pull-right">
+                                                <a href="{{ route('helpdesk.priorities.edit', $priority) }}" class="tw-text-grey no-underline">
+                                                    <i class="fe fe-edit mr-1"></i>
+                                                </a>
+
+                                                @if ($priority->trashed()) {{-- Priority has been deleted --}}
+                                                    <a href="{{ route('helpdesk.priorities.undo', $priority) }}" class="text-success no-underline">
+                                                        <i class="fe fe-rotate-ccw"></i>
+                                                    </a>
+                                                @else {{-- Category is active --}}
+                                                    <a href="{{ route('helpdesk.priorities.delete', $priority) }}" class="text-danger no-underline">
+                                                        <i class="fe fe-x-circle"></i>
+                                                    </a>
+                                                @endif
+                                            </span>
+                                        </td> {{-- /// End options --}}
                                     </tr>
                                 @empty {{-- No helpdesk priorities are found --}}
                                     <tr>

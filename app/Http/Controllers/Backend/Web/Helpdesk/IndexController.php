@@ -30,6 +30,6 @@ class IndexController extends Controller
      */
     public function index(): View
     {
-        return view('backend.helpdesk.dashboard');
+        return view('backend.helpdesk.dashboard', compact('tickets'));
     }
 }

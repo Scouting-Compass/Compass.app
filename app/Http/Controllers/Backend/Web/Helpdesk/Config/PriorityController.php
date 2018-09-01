@@ -75,6 +75,7 @@ class PriorityController extends Controller
     /**
      * Delete an helpdesk priority in the resource storage. 
      * 
+     * @param  Priority $priority The resource model for the storage.
      * @return RedirectResponse
      */
     public function destroy(Priority $priority): RedirectResponse 
