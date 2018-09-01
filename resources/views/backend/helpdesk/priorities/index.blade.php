@@ -31,6 +31,11 @@
                             </thead>
                             <tbody>
                                 @forelse ($priorities as $priority) {{-- There are helpdesk priorities --}}
+                                    <tr>
+                                        <td><strong>#{{ $priority->id }}</strong></td>
+                                        <td>{{ $priority->creator->name }}</td>
+                                        <td><span style="color: {{ $priority->color }};">{{ $priority->name }}</span></td>
+                                    </tr>
                                 @empty {{-- No helpdesk priorities are found --}}
                                     <tr>
                                         <td colspan="6"><i><small class="text-muted">No priorities found for the helpdesk.</small></i></td>

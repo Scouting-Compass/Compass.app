@@ -57,6 +57,17 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @if (Auth::check())
+                            <li class="nav- dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fe fe-plus"></i>
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="">New location</a>
+                                    <a class="dropdown-item" href="">New organisation</a>
+                                </div>
+                            </li>
+
                             <li class="nav-item">
                                 <a href="" class="nav-link"><i class="fe fe-bell"></i></a>
                             </li>

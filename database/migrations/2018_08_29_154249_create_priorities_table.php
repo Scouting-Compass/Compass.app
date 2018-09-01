@@ -11,10 +11,15 @@ class CreatePrioritiesTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('priorities', function (Blueprint $table) {
+        Schema::create('priorities', function (Blueprint $table): void {
             $table->increments('id');
+            $table->integer('creator_id')->unsigned()->nullable();
+            $table->string('name'); 
+            $table->string('color', 7)->default('#000000');
+            $table->string('type');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -24,7 +29,7 @@ class CreatePrioritiesTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('priorities');
     }

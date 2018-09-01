@@ -52,7 +52,8 @@ class PriorityController extends Controller
      */
     public function create(): View
     {
-        return view('helpdesk.priorities.create');
+        $types = $this->priorities->getTypes();
+        return view('backend.helpdesk.priorities.create', compact('types'));
     }
 
     /**

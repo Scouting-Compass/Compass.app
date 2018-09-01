@@ -1,9 +1,14 @@
 <?php
 
-namespace Compass\Http\Requests\helpdesk;
+namespace Compass\Http\Requests\Helpdesk;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class PriorityValidation 
+ * 
+ * @package Compass\Http\Requests\Helpdesk
+ */
 class PriorityValidation extends FormRequest
 {
     /**
@@ -11,9 +16,9 @@ class PriorityValidation extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return auth()->check() && auth()->user()->hasRole('admin');
     }
 
     /**
@@ -21,10 +26,32 @@ class PriorityValidation extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
-        return [
-            //
-        ];
+        return array_merge($this->baseRules(), $this->methodSpecificRules());
+    }
+
+    /**
+     * Basic validation rules. 
+     * 
+     * @return array
+     */
+    private function baseRules(): array 
+    {
+        return ['color' => 'required|string|max:10', 'type' => 'required|string|max:50'];
+    }
+
+    /**
+     * Validation rules per request type. 
+     * 
+     * @return array
+     */
+    private function methodSpecificRules(): array 
+    {
+        switch ($this->method()) {
+            case 'POST':    return ['name' => 'required|string|max:191|unique:categories'];
+            case 'PATCH':   return ['name' => 'required|string|max:191|unique:categories,name'. $this->categories->id];
+            default:        return [];
+        }
     }
 }

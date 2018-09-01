@@ -22,7 +22,7 @@ class Priority extends PriorityRepository implements PriorityInterface
      *
      * @var array
      */
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['name', 'color', 'type'];
 
     /**
      * Data relation for the creator details

@@ -41,9 +41,9 @@ class CategoryValidation extends FormRequest
     {
         return ['color' => 'string|required|max:10', 'type' => 'string|required|max:50',];
     }
-
+    
     /**
-     * Validation rules per request type?
+     * Validation rules per request type.
      *
      * @return array
      */
