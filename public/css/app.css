@@ -11549,6 +11549,17 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
 }
 
+.row-cards > .col,
+.row-cards > [class*='col-'] {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
 .stamp {
   color: #fff;
   background: #868e96;

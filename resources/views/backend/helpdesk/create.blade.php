@@ -15,8 +15,27 @@
     </div>
 
     <div class="container py-3"> {{-- Page content --}}
-        <form method="POST" action class="card card-body">
-            @csrf {{-- Form field protection --}}
-        </form>
-    </div> {{-- /// Page content --}}
+        <div class="row">
+            <div class="col-md-12">
+                <form method="POST" action class="card card-body">
+                    @csrf {{-- Form field protection --}}
+                    @include('flash::message') {{-- Flash session view partial --}}
+
+                    <div class="form-group">
+                        <label for="inputTitle">Title <span class="tw-text-red">*</span></label>
+                        <input type="text" class="form-control @error('title', 'is-invalid')" id="inputTitle" placeholder="A brief of your issue ticket">
+                        @error('title')
+                    </div>
+
+                    <hr class="mt-0 border-grey">
+
+                    <div class="form-group mb-0">
+                        <button class="btn btn-success rounded" type="submit">Submit</button>
+                        <button class="btn btn-link rounded" type="reset">Reset</button>
+                    </div>
+
+                </form>
+            </div> {{-- /// Page content --}}
+        </div>
+    </div>
 @endsection

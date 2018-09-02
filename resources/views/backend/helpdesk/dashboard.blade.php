@@ -19,9 +19,9 @@
     </div>
 
     <div class="container py-3">
-        <div class="row">
+        <div class="row row-cards">
             <div class="col-sm-6 col-lg-3">
-                <div class="card tw-shadow p-2">
+                <div class="card tw-shadow p-2 mb-3">
                     <div class="d-flex align-items-center">
                         <a href="">
                             <span class="stamp stamp-md tw-shadow bg-blue mr-3">
@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-sm-6 col-lg-3">
-                <div class="card tw-shadow p-2">
+                <div class="card tw-shadow p-2 mb-3">
                     <div class="d-flex align-items-center">
                         <a href="">
                             <span class="stamp stamp-md tw-shadow bg-blue mr-3">
@@ -61,7 +61,7 @@
             </div>
 
             <div class="col-sm-6 col-lg-3">
-                <div class="card tw-shadow p-2">
+                <div class="card tw-shadow p-2 mb-3">
                     <div class="d-flex align-items-center">
                         <a href="">
                             <span class="stamp stamp-md tw-shadow bg-red mr-3">
@@ -78,7 +78,7 @@
             </div>
 
             <div class="col-sm-6 col-lg-3">
-                <div class="card tw-shadow p-2">
+                <div class="card tw-shadow p-2 mb-3">
                     <div class="d-flex align-items-center">
                         <a href="">
                             <span class="stamp stamp-md tw-shadow bg-green mr-3">
@@ -93,6 +93,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="card card-body">
         </div>
     </div>
 @endsection

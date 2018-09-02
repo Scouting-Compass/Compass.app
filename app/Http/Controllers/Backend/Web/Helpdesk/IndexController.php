@@ -48,7 +48,7 @@ class IndexController extends Controller
             return view('backend.helpdesk.dashboard', compact('tickets'));
         }
 
-        return view('backend.helpdesk.dashboard-user');
+        return view('backend.helpdesk.dashboard-user', compact('tickets'));
     }
 
     /**
