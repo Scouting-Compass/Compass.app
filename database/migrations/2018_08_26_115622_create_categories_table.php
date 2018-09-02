@@ -26,7 +26,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
 
             // Foreign keys constraints
-            $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('creator_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

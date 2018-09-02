@@ -21,6 +21,9 @@ class CreatePrioritiesTable extends Migration
             $table->string('type');
             $table->softDeletes();
             $table->timestamps();
+
+            // Foreign key constraints 
+            $table->foreign('creator_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

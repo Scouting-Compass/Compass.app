@@ -48,7 +48,13 @@
 
                         <div>
                             <h6 class="m-0">{{ $tickets->assigned()->count() }} <small>Assigned tickets</small></h6>
-                            <small class="text-muted">{{ $tickets->assigned()->today()->count() }} assigned today</small>
+                            <small class="text-muted">
+                                @empty ($tickets->assigned())
+                                    0 assigned today
+                                @else
+                                    {{ $tickets->today()->assigned()->count() }} assigned today
+                                @endempty
+                            </small>
                         </div>
                     </div>
                 </div>
