@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('../../../node_modules/trumbowyg/dist/trumbowyg.min.js');
 
 window.Vue = require('vue');
 
@@ -29,5 +30,20 @@ $(function () {
 
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350, function() {
         $(this).alert('close');
+    });
+
+    // Trumbowyg
+    $('#contentArea').trumbowyg({
+        svgPath: '/icons/icons.svg',
+        btns: [
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen']
+        ]
     });
 });

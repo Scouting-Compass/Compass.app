@@ -14,4 +14,5 @@ let tailwindcss = require('tailwindcss');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
+   .copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/icons')
    .options({processCssUrls: false, postCss: [ tailwindcss('./tailwind.js') ]});

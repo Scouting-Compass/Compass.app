@@ -21,10 +21,22 @@
                     @csrf {{-- Form field protection --}}
                     @include('flash::message') {{-- Flash session view partial --}}
 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputTitle">Title <span class="tw-text-red">*</span></label>
+                            <input type="text" class="form-control @error('title', 'is-invalid')" id="inputTitle" placeholder="A brief of your issue ticket">
+                            @error('title')
+                        </div>
+                    </div>
+
+                    @if (auth()->user()->hasRole('admin'))
+                        {{-- Admin options --}}
+                    @endif
+
                     <div class="form-group">
-                        <label for="inputTitle">Title <span class="tw-text-red">*</span></label>
-                        <input type="text" class="form-control @error('title', 'is-invalid')" id="inputTitle" placeholder="A brief of your issue ticket">
-                        @error('title')
+                        <label for="contentArea">Description <span class="tw-text-red">*</span></label>
+                        <textarea id="contentArea" @input('content') class="@error('title', 'is-invalid')" placeholder="Describe where u need support."></textarea>
+                        @error('content')
                     </div>
 
                     <hr class="mt-0 border-grey">
