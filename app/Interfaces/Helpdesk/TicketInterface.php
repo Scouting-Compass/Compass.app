@@ -12,21 +12,27 @@ use Illuminate\Database\Eloquent\Builder;
 interface TicketInterface
 {
     /**
-     * @param  Builder $query
+     * Get all the tickets from today. Mostly used with another scope. 
+     * 
+     * @param  Builder $query   The Eloquent query builder instance.
      * @return Builder
      */
     public function scopeToday(Builder $query): Builder;
 
     /**
-     * @param  Builder $query
+     * Get all the ticket that are assigned to the authenticated user. 
+     * 
+     * @param  Builder $query   The Eloquent query builder instance. 
      * @return Builder
      */
     public function scopeAssigned(Builder $query): Builder;
 
     /**
-     * @param  Builder $query
-     * @param  bool    $status
+     * Get all the open tickets from the storage. 
+     * 
+     * @param  Builder $query   The Eloquent query builder instance. 
+     * @param  bool    $status  The status for the ticket.
      * @return Builder
      */
-    public function scopeIsOpen(Builder $query, bool $status): Builder
+    public function scopeIsOpen(Builder $query, bool $status): Builder;
 }

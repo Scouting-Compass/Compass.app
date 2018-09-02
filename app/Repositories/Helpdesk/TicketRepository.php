@@ -12,5 +12,14 @@ use Compass\Interfaces\Helpdesk\TicketInterface;
  */
 class TicketRepository extends Model implements TicketInterface
 {
-    //
+    /**
+     * Get all the tickets from today. Mostly used with another scope. 
+     * 
+     * @param  Builder $query   The Eloquent query builder instance. 
+     * @return Builder
+     */
+    public function scopeToday(Builder $query): Builder
+    {
+        //
+    }
 }
