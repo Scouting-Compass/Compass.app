@@ -17,7 +17,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('users', 'Backend\Web\UsersController@index')->name('users.index');
 
 // Helpdesk routes
-Route::get('helpdesk/dashboard','Backend\Web\Helpdesk\IndexController@index')->name('helpdesk.index');
+Route::get('helpdesk/dashboard', 'Backend\Web\Helpdesk\IndexController@index')->name('helpdesk.index');
+
+// Helpdesk ticket routes 
+Route::get('helpdesk/ticket/create', 'Backend\Web\Helpdesk\IndexController@create')->name('helpdesk.ticket.create');
 
 // Helpdesk categories routes
 Route::get('helpdesk/categories', 'Backend\Web\Helpdesk\Config\CategoryController@index')->name('helpdesk.categories.index');

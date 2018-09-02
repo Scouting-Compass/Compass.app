@@ -11,7 +11,7 @@
                     <i class="fe fe-sliders mr-1"></i> Configuration
                 </a>
 
-                <a href="" class="ml-2 btn btn-outline-primary">
+                <a href="{{ route('helpdesk.ticket.create') }}" class="ml-2 btn btn-outline-primary">
                     <i class="fe fe-file-plus mr-1"></i> Create ticket
                 </a>
             </div>
