@@ -27,10 +27,30 @@
                             <input type="text" class="form-control @error('title', 'is-invalid')" id="inputTitle" placeholder="A brief of your issue ticket">
                             @error('title')
                         </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputCategories">Category <span class="tw-text-red">*</span></label>
+
+                            <select @input('category') id="inputCategories" class="form-control @error('category', 'is-invalid')">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" @if (old('category') === $category->name) selected @endif>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            @error('category')
+                        </div>
                     </div>
 
-                    @if (auth()->user()->hasRole('admin'))
-                        {{-- Admin options --}}
+                    @if (auth()->user()->hasRole('admin')) {{-- Admin options --}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputPriority">Priority <span class="tw-text-red">*</span></label>
+
+                                <select @input('priority') id="inputPriority"></select>
+                            </div>
+                        </div>
                     @endif
 
                     <div class="form-group">
