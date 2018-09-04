@@ -33,7 +33,7 @@
 
                             <select @input('category') id="inputCategories" class="form-control @error('category', 'is-invalid')">
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" @if (old('category') === $category->name) selected @endif>
+                                    <option value="{{ $category->id }}" @if (old('category') == $category->id) selected @endif>
                                         {{ $category->name }}
                                     </option>
                                 @endforeach
@@ -46,9 +46,26 @@
                     @if (auth()->user()->hasRole('admin')) {{-- Admin options --}}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputPriority">Priority <span class="tw-text-red">*</span></label>
+                                <label for="inputPriority">Priority</label>
 
-                                <select @input('priority') id="inputPriority">
+                                <select @input('priority') class="form-control @error('priority', 'is-invalid')" id="inputPriority">
+                                    @foreach ($priorities as $priority)
+                                        <option value="{{ $priority->id }}" @if (old('priority') == $priority->id) selected @endif>
+                                            {{ $priority->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="inputAssignee">Assign ticket to</label>
+
+                                <select @input('assignee') id="inputAssignee" class="form-control @error('assignee', 'is-invalid')">
+                                    @foreach ($admins as $assignee)
+                                        <option value="{{ $assignee->id }}" @if (old('assignee') == $assignee->id) selected @endif>
+                                            {{ $assignee->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

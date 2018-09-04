@@ -9,6 +9,7 @@ use Compass\Models\Ticket;
 use Illuminate\Contracts\Auth\Guard;
 use Compass\Models\Priority;
 use Compass\Models\Categories;
+use Compass\User;
 
 /**
  * Class IndexController
@@ -56,15 +57,17 @@ class IndexController extends Controller
      * 
      * @param  Priority   $priorities   The resource model for the helpdesk priorities.
      * @param  Categories $categories   The resource model for the helpdesk categories.
+     * @param  User       $users        The resource model for the application users.
      * @return View 
      */
-    public function create(Priority $priorities, Categories $categories): View
+    public function create(Priority $priorities, Categories $categories, User $users): View
     {
         if ($this->auth->user()->hasRole('admin')) {
             $priorities = $priorities->all(['id', 'type', 'name']);
+            $admins = $users->role('admin')->select(['id', 'name'])->get();   
         }
 
         $categories = $categories->getCategories(auth()->user());
-        return view('backend.helpdesk.create', compact('priorities', 'categories'));
+        return view('backend.helpdesk.tickets.create', compact('priorities', 'categories', 'admins'));
     }
 }
