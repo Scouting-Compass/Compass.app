@@ -2,14 +2,13 @@
 
 namespace Compass\Http\Controllers\Backend\Web\Helpdesk;
 
-use Illuminate\Http\Request;
 use Compass\Http\Controllers\Controller;
 use Illuminate\View\View;
-use Compass\Models\Ticket;
 use Illuminate\Contracts\Auth\Guard;
-use Compass\Models\Priority;
-use Compass\Models\Categories;
+use Compass\Models\{Categories, Priority, Ticket};
+use Illuminate\Http\RedirectResponse;
 use Compass\User;
+use Compass\Http\Requests\Helpdesk\TicketValidation;
 
 /**
  * Class IndexController
@@ -69,5 +68,22 @@ class IndexController extends Controller
 
         $categories = $categories->getCategories(auth()->user());
         return view('backend.helpdesk.tickets.create', compact('priorities', 'categories', 'admins'));
+    }
+
+    /**
+     * Create a new helpdesk ticket in the application. 
+     * 
+     * @param  TicketValidation $input The form request class that handles the request input.
+     * @return RedirectResponse
+     */
+    public function store(TicketValidation $input): RedirectResponse
+    {
+        if ($ticket = new Ticket($input->all())) {    // Ticket has been stored in the application
+            $ticket->setupRelations($ticket, $input);   // Register all the relation values for the ticket
+
+            $this->flashInfo('The helpdesk ticket has been stored.');
+        }
+
+        return redirect()->route('backend.helpdesk.tickets.show', $ticket);
     }
 }
