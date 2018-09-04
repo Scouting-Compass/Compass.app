@@ -48,7 +48,8 @@
                             <div class="form-group col-md-6">
                                 <label for="inputPriority">Priority <span class="tw-text-red">*</span></label>
 
-                                <select @input('priority') id="inputPriority"></select>
+                                <select @input('priority') id="inputPriority">
+                                </select>
                             </div>
                         </div>
                     @endif
