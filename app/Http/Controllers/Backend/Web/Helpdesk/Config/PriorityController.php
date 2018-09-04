@@ -31,7 +31,7 @@ class PriorityController extends Controller
      */
     public function __construct(Priority $priorities)
     {
-        $this->middleware(['auth', 'role:admin', 'forbid-banned-user']);
+        $this->middleware(['verified', 'auth', 'role:admin', 'forbid-banned-user']);
         $this->priorities = $priorities;
     }
 

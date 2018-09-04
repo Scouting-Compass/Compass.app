@@ -32,7 +32,7 @@ class IndexController extends Controller
      */
     public function __construct(Guard $auth)
     {
-        $this->middleware(['auth', 'forbid-banned-user']);
+        $this->middleware(['verified', 'auth', 'forbid-banned-user']);
         $this->auth = $auth;
     }
 

@@ -28,7 +28,7 @@ class UsersController extends Controller
      */
     public function __construct(User $users) 
     {
-        $this->middleware(['auth', 'role:admin', 'forbid-banned-user']);
+        $this->middleware(['verified', 'auth', 'role:admin', 'forbid-banned-user']);
         $this->users = $users;
     }
 

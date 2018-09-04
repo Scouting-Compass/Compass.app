@@ -33,7 +33,7 @@ class CategoryController extends Controller
      */
     public function __construct(Categories $categories)
     {
-        $this->middleware(['auth', 'forbid-banned-user', 'role:admin']);
+        $this->middleware(['verified', 'auth', 'forbid-banned-user', 'role:admin']);
         $this->categories = $categories;
     }
 

@@ -11,13 +11,14 @@ use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 /**
  * Class User
  *  
  * @package Compass\User
  */ 
-class User extends Authenticatable implements FilterScopesInterface, BannableContract
+class User extends Authenticatable implements FilterScopesInterface, BannableContract, MustVerifyEmail
 {
     use Notifiable, HasRoles, Bannable, FilterScopes, SoftDeletes;
 
