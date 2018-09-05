@@ -31,6 +31,6 @@ class Priority extends PriorityRepository implements PriorityInterface
      */
     public function creator(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault(['name' => 'Unknown']);
     }
 }

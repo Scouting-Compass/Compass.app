@@ -25,4 +25,19 @@ class PriorityRepository extends Model implements PriorityInterface
             'internal' => 'INTERNAL - Priority that is dedicated for internal use only.'
         ];
     }
+
+    /**
+     * Get the application it's default helpdesk priorities
+     * 
+     * @return  array
+     */
+    public function getDefaultPriorities(): array 
+    {
+        return [
+            ['color' => '#000000', 'name' => 'Low', 'type' => 'public'], 
+            ['color' => '#000000', 'name' => 'Normal', 'type' => 'public'], 
+            ['color' => '#000000', 'name' => 'High', 'type' => 'public'], 
+            ['color' => '#000000', 'name' => 'Critical', 'type' => 'public'], 
+        ];
+    }
 }

@@ -74,6 +74,8 @@ class TicketRepository extends Model implements TicketInterface
 
     /**
      * Data relation for the helpdesk ticket its priority
+     * 
+     * @return BelongsTo
      */
     public function category(): BelongsTo
     {
@@ -84,6 +86,8 @@ class TicketRepository extends Model implements TicketInterface
 
     /**
      * Data relation for the helpdesk it's priority
+     * 
+     * @return BelongsTo
      */
     public function priority(): BelongsTo 
     {

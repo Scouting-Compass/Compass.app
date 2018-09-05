@@ -19,6 +19,9 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table): void {
             $table->increments('id');
             $table->integer('assigned_id')->unsigned()->nullable();
+            $table->integer('category_id')->unsigned()->nullable(); 
+            $table->integer('priority_id')->unsigned()->nullable();
+            $table->integer('creator_id')->unsigned()->nullable();
             $table->boolean('is_open')->default(0);
             $table->string('title');
             $table->string('content');
@@ -26,6 +29,9 @@ class CreateTicketsTable extends Migration
             $table->timestamps();
 
             // Foreign key constraints 
+            $table->foreign('priority_id')->references('id')->on('priorities')->onDelete('set null'); 
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('creator_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('assigned_id')->references('id')->on('users')->onDelete('set null');
         });
     }
