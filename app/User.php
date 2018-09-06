@@ -12,7 +12,6 @@ use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Passport\HasApiTokens;
 
 /**
  * Class User
@@ -21,7 +20,7 @@ use Laravel\Passport\HasApiTokens;
  */ 
 class User extends Authenticatable implements FilterScopesInterface, BannableContract, MustVerifyEmail
 {
-    use Notifiable, HasRoles, Bannable, FilterScopes, SoftDeletes, HasApiTokens;
+    use Notifiable, HasRoles, Bannable, FilterScopes, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
