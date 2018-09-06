@@ -4,6 +4,11 @@ namespace Compass\Http\Requests\Helpdesk;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class TicketValidation 
+ * 
+ * @package
+ */
 class TicketValidation extends FormRequest
 {
     /**
@@ -11,9 +16,9 @@ class TicketValidation extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool 
     {
-        return false;
+        return auth()->check();
     }
 
     /**
@@ -21,10 +26,12 @@ class TicketValidation extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:191',
+            'content' => 'required|string',
+            'category' => 'required'
         ];
     }
 }

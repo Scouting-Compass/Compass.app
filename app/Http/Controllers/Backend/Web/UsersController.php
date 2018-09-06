@@ -24,6 +24,7 @@ class UsersController extends Controller
     /**
      * UsersController Constructor 
      * 
+     * @param  User $users The resource model for the resource storage.
      * @return void 
      */
     public function __construct(User $users) 

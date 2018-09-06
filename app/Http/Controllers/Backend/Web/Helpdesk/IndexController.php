@@ -78,12 +78,22 @@ class IndexController extends Controller
      */
     public function store(TicketValidation $input): RedirectResponse
     {
-        if ($ticket = new Ticket($input->all())) {    // Ticket has been stored in the application
+        if ($ticket = new Ticket($input->all())) {      // Ticket has been stored in the application
             $ticket->setupRelations($ticket, $input);   // Register all the relation values for the ticket
-
             $this->flashInfo('The helpdesk ticket has been stored.');
         }
 
-        return redirect()->route('backend.helpdesk.tickets.show', $ticket);
+        return redirect()->route('helpdesk.ticket.show', $ticket);
     }
+
+    /**
+     * Display a specific ticket in the application. 
+     *
+     * @param  Ticket $ticket The resource entity from the ticket in the application. 
+     * @return View
+     */
+    public function show(Ticket $ticket): View 
+    {
+        return view('backend.helpdesk.tickets.show', compact('ticket'));
+    } 
 }

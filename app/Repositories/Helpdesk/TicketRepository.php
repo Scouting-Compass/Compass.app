@@ -24,7 +24,7 @@ class TicketRepository extends Model implements TicketInterface
      */
     public function scopeToday(Builder $query): Builder
     {
-        return $query->whereCreatedAt(date('Y-m-d'));
+        return $query->whereDate('created_at', '=', date('Y-m-d'));
     }
 
     /**
