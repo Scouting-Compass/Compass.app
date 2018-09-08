@@ -43,10 +43,12 @@ class AccountSettingsController extends Controller
      */
     public function index(?string $type = null): View
     {
-        return ($type === 'security' 
-            ? view("backend.account.settings-security") 
-            : view("backend.account.settings-information")
-        );
+        switch ($type) {
+            case 'security':    return view('backend.account.settings-security'); 
+            case 'api-tokens':  return view('backend.account.settings-api');
+
+            default: return view('backend.account.settings-information');
+        }
     }
 
     /**

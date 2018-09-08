@@ -17,6 +17,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('token-create-form', require('./components/api/CreateFormComponent.vue')); 
+Vue.component('token-listing', require('./components/api/TokenListingComponent.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -22,6 +22,9 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Internal use API 
+Route::get('tokens', 'Backend\Api\TokenController@index')->name('api.internal.token.list');
+
 // Account configuration routes 
 Route::get('/profile-settings/{type?}', 'Auth\AccountSettingsController@index')->name('profile.settings');
 Route::patch('/profile-settings', 'Auth\AccountSettingsController@updateInformation')->name('profile.settings.info');
