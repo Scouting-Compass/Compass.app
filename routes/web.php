@@ -22,6 +22,9 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Notification routes 
+Route::get('/notifications', 'Backend\Web\NotificationController@index')->name('notifications.index');
+
 // Account configuration routes 
 Route::get('/profile-settings/{type?}', 'Auth\AccountSettingsController@index')->name('profile.settings');
 Route::patch('/profile-settings', 'Auth\AccountSettingsController@updateInformation')->name('profile.settings.info');

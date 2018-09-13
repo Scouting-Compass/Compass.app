@@ -175,6 +175,7 @@ return [
         // Compass\Providers\BroadcastServiceProvider::class,
         Compass\Providers\EventServiceProvider::class,
         Compass\Providers\RouteServiceProvider::class,
+        Compass\Providers\ViewComposerServiceProvider::class,
 
     ],
 

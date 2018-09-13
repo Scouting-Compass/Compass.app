@@ -57,7 +57,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @if (Auth::check())
-                            <li class="nav- dropdown">
+                            <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fe fe-plus"></i>
                                 </a>
@@ -69,7 +69,15 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="" class="nav-link"><i class="fe fe-bell"></i></a>
+                                <a href="{{ route('notifications.index') }}" class="nav-link">
+                                    <i class="fe fe-bell"></i>
+
+                                    @if ($notificationCounter > 0)
+                                        <span style="margin-top: -.25rem;" class="badge align-middle badge-pill badge-danger">
+                                            {{ $notificationCounter }}
+                                        </span> 
+                                    @endif
+                                </a>
                             </li>
 
                             <li class="nav-item dropdown">
