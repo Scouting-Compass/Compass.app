@@ -11,6 +11,8 @@ class LayoutComposer
 {
     public function compose(View $view): void
     {
-        $view->with('notificationCounter', auth()->user()->unreadNotifications()->count());
+        if (auth()->check()) {
+            $view->with('notificationCounter', auth()->user()->unreadNotifications()->count());
+        }
     }
 }

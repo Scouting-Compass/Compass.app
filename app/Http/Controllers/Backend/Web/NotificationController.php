@@ -55,4 +55,15 @@ class NotificationController extends Controller
 
         return view('shared.notifications', compact('notifications', 'type'));
     }
+
+    /**
+     * Function for marking all the unread notifications from the user as read.
+     * 
+     * @return RedirectResponse
+     */
+    public function markAll(): RedirectResponse 
+    {
+        $this->auth->user()->unreadNotifications->markAsRead();
+        return redirect()->action([NotificationController::class, 'index']);
+    }
 }

@@ -23,6 +23,7 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Notification routes 
+Route::get('/notifications/read-all', 'Backend\Web\NotificationController@markAll')->name('notifications.markAll');
 Route::get('/notifications', 'Backend\Web\NotificationController@index')->name('notifications.index');
 
 // Account configuration routes 

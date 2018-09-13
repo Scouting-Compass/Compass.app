@@ -29,7 +29,7 @@
                                 All notications
                             @else 
                                 Unread notifications
-                                <small class="float-right"><a href="">Read all</a></small>
+                                <small class="float-right"><a href="{{ route('notifications.markAll') }}">Read all</a></small>
                             @endif
                         </h6>
 
@@ -56,7 +56,7 @@
                             @if ($type === 'read')
                                 Looks like that we currently have no notifications for u!
                             @else 
-                                Looks like that you've read all your notifications.
+                                Looks like you've read all your notifications.
                             @endif
                         </p>
                     </div>
