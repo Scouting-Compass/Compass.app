@@ -67,10 +67,10 @@ class CategoryController extends Controller
      */
     public function store(CategoryValidation $input): RedirectResponse
     {
-       if ($category = $this->categories->create($input->all())) {
-           $category->creator()->associate($input->user())->save(); // Assign authenticated user to the category.
-           $this->flashSuccess('The category has been stored');
-       }
+        if ($category = $this->categories->create($input->all())) {
+            $category->creator()->associate($input->user())->save(); // Assign authenticated user to the category.
+            $this->flashSuccess('The category has been stored');
+        }
 
        return redirect()->route('helpdesk.categories.create');
     }

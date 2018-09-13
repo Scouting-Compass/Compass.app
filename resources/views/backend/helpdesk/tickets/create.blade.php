@@ -17,14 +17,14 @@
     <div class="container py-3"> {{-- Page content --}}
         <div class="row">
             <div class="col-md-12">
-                <form method="POST" action class="card card-body">
+                <form method="POST" action="{{ route('helpdesk.ticket.store') }}" class="card card-body">
                     @csrf {{-- Form field protection --}}
                     @include('flash::message') {{-- Flash session view partial --}}
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputTitle">Title <span class="tw-text-red">*</span></label>
-                            <input type="text" class="form-control @error('title', 'is-invalid')" id="inputTitle" placeholder="A brief of your issue ticket">
+                            <input @input('title') type="text" class="form-control @error('title', 'is-invalid')" id="inputTitle" placeholder="A brief of your issue ticket">
                             @error('title')
                         </div>
 

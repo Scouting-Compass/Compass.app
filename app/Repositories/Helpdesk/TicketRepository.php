@@ -2,11 +2,12 @@
 
 namespace Compass\Repositories\Helpdesk;
 
-use Illuminate\Database\Eloquent\Model;
-use Compass\Interfaces\Helpdesk\TicketInterface;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Compass\User;
+use Compass\Http\Requests\Helpdesk\TicketValidation;
+use Compass\Models\{Priority, Categories, Ticket};
+use Compass\Interfaces\Helpdesk\TicketInterface;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\{Builder, Relations\BelongsTo};
  
 /**
  * Class TicketRepository 
@@ -23,7 +24,7 @@ class TicketRepository extends Model implements TicketInterface
      */
     public function scopeToday(Builder $query): Builder
     {
-        return $query->whereCreatedAt(date('Y-m-d'));
+        return $query->whereDate('created_at', '=', date('Y-m-d'));
     }
 
     /**
@@ -51,12 +52,71 @@ class TicketRepository extends Model implements TicketInterface
     }
 
     /**
+     * Method for setting the resource relations when storing/updating an ticket. 
+     * 
+     * @param  Ticket           $ticket The resource entity from the helpdesk ticket.   
+     * @param  TicketValidation $input  The request class for all the input data.
+     * @return void 
+     */
+    public function setupRelations(Ticket $ticket, TicketValidation $input): void 
+    {
+        $ticket->creator()->associate($input->user())->save();          //? Data relation for the ticket author.
+        $ticket->category()->associate($input->category)->save();       //? Data relation for the ticket category.
+
+        if ($input->has('assignee')) { //! OPTIONAL:  if the assignee is given. Register then.
+            $ticket->assigned()->associate($input->assignee)->save();   //? Data relation for the ticket assignee.
+        }
+
+        if ($input->has('priority')) { //! OPTIONAL: if the priority is given register then.
+            $ticket->priority()->associate($input->priority)->save();   //? Data relation for the ticket priority.
+        }
+    }
+
+    /**
+     * Data relation for the helpdesk ticket its priority
+     * 
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Categories::class)->withDefault([
+            'name' => '<span class="text-grey">none</span> - <a href="">Edit</a>'
+        ]);
+    }
+
+    /**
+     * Data relation for the helpdesk it's priority
+     * 
+     * @return BelongsTo
+     */
+    public function priority(): BelongsTo 
+    {
+        return $this->belongsTo(Priority::class)->withDefault([
+            'name' => '<span class="text-grey">none</span> - <a href="">Edit</a>'
+        ]);
+    }
+
+    /**
+     * Data relation for the user that has created the ticket. 
+     * 
+     * @return BelongsTo
+     */
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class)->withDefault([
+            'name' => '<span class="text-muted">Verwijderde gebruiker</span>'
+        ]);
+    }
+
+    /**
      * Data relation for the user that is assigned to the ticket. 
      * 
      * @return BelongsTo
      */
     public function assigned(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault([
+            'name' => '<span class="text-grey">none</span> - <a href="">Assign yourself</a>'
+        ]);
     }
 }

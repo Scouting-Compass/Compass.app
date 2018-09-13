@@ -7,6 +7,10 @@
             <div class="page-subtitle">Management panel</div>
 
             <div class="page-options d-flex">
+                <a href="" class="btn tw-rounded btn-primary mr-2">
+                    <i class="fe fe-user-plus"></i>
+                </a>
+
                 <div class="btn-group">
                     <button type="button" class="btn tw-rounded btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fe mr-1 fe-filter"></i> Filter
