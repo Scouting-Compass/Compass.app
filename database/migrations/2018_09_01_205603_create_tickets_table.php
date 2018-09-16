@@ -22,7 +22,7 @@ class CreateTicketsTable extends Migration
             $table->integer('category_id')->unsigned()->nullable(); 
             $table->integer('priority_id')->unsigned()->nullable();
             $table->integer('creator_id')->unsigned()->nullable();
-            $table->boolean('is_open')->default(0);
+            $table->boolean('is_open')->default(1);
             $table->string('title');
             $table->string('content');
             $table->softDeletes();
