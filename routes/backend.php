@@ -15,6 +15,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Users 
 Route::get('users', 'Backend\Web\UsersController@index')->name('users.index');
+Route::get('users/create', 'Backend\Web\UsersController@create')->name('users.create');
 
 // Helpdesk routes
 Route::get('helpdesk/dashboard', 'Backend\Web\Helpdesk\IndexController@index')->name('helpdesk.index');

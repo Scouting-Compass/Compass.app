@@ -54,6 +54,17 @@ class UsersController extends Controller
     }
 
     /**
+     * Create view for an new user in the application. 
+     * 
+     * @return View
+     */
+    public function create(): View
+    {
+        dd('TODO');
+        return view();
+    }
+
+    /**
      * Method for soft-deleting a user in the application.
      *
      * @todo Implement route

@@ -7,7 +7,7 @@
             <div class="page-subtitle">Management panel</div>
 
             <div class="page-options d-flex">
-                <a href="" class="btn tw-rounded btn-primary mr-2">
+                <a href="{{ route('users.create') }}" class="btn tw-rounded btn-primary mr-2">
                     <i class="fe fe-user-plus"></i>
                 </a>
 
