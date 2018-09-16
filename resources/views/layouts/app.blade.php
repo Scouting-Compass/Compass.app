@@ -123,7 +123,7 @@
                     <span class="text-muted">|</span>
                     <a href="" class="no-underline text-muted">Terms of Service</a>
                     <span class="text-muted">|</span>
-                    <a href="" class="no-underline text-muted">Github</a>
+                    <a target="_blank" href="https://github.com/Scouting-Compass/Compass.app" class="no-underline text-muted">Github</a>
                 </div>
             </div>
         </footer>
