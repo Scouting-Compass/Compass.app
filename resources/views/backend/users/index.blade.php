@@ -70,6 +70,8 @@
 
                                 <td> {{-- User options --}}
                                     <span class="pull-right">
+                                        <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-info"></i></a>
+
                                         @if ($user->isNotBanned())
                                             <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-lock"></i></a>
                                         @elseif ($user->isBanned()) {{-- User is deactivated inthe application --}}

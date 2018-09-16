@@ -56,8 +56,15 @@ class CommentController extends Controller
         return redirect()->route('helpdesk.ticket.show', $ticket);
     }
 
+    /**
+     * Delete an comment in the helpdesk. 
+     * 
+     * @param  Comment $comment The resource entity from the comment. 
+     * @return RedirectResponse
+     */
     public function destroy(Comment $comment): RedirectResponse
     {
-
+        $comment->delete();
+        return back();
     }
 }

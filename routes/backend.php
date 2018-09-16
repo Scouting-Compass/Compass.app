@@ -26,6 +26,9 @@ Route::post('helpdesk/ticket/create', 'Backend\Web\Helpdesk\IndexController@stor
 
 Route::post('helpdesk/ticket/comment/{ticket}', 'Backend\Web\Helpdesk\CommentController@store')->name('helpdesk.ticket.comment');
 
+// Comment routes
+Route::get('comment/delete/{comment}', 'Backend\Web\Helpdesk\CommentController@destroy')->name('comment.delete');
+
 // Helpdesk categories routes
 Route::get('helpdesk/categories', 'Backend\Web\Helpdesk\Config\CategoryController@index')->name('helpdesk.categories.index');
 Route::get('helpdesk/categories/create', 'Backend\Web\Helpdesk\Config\CategoryController@create')->name('helpdesk.categories.create');
