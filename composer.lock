@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b82f5972e7847aeffda89f34bd041206",
+    "content-hash": "cb03ad75575d40900c48241b66e4a42c",
     "packages": [
         {
             "name": "activismebe/laravel-form-helpers",
@@ -62,6 +62,61 @@
                 "validation"
             ],
             "time": "2017-11-17T23:32:24+00:00"
+        },
+        {
+            "name": "beyondcode/laravel-comments",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-comments.git",
+                "reference": "e5b4eb8704c49e9ca41fe520dec250510d9d5111"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-comments/zipball/e5b4eb8704c49e9ca41fe520dec250510d9d5111",
+                "reference": "e5b4eb8704c49e9ca41fe520dec250510d9d5111",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BeyondCode\\Comments\\CommentsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BeyondCode\\Comments\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondcode.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add comments to your Laravel application",
+            "homepage": "https://github.com/beyondcode/laravel-comments",
+            "keywords": [
+                "beyondcode",
+                "comments",
+                "laravel-comments"
+            ],
+            "time": "2018-09-03T11:37:40+00:00"
         },
         {
             "name": "cybercog/laravel-ban",

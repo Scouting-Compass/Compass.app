@@ -25,9 +25,37 @@
                     {{ ucfirst($ticket->content) }}
                 </div>
 
+                @if (count($comments) > 0)
+                    <hr class="mt-2 mb-2">
+
+                    <div class="card card-body mt-2">
+                        @foreach ($comments as $comment) 
+                            <div class="media text-muted pt-0">
+                                <img src="{{ Avatar::create($comment->commentator->name)->toBase64() }}" alt="{{ $comment->commentator->name }}" class="mr-2 rounded" style="width: 32px; height: 32px;">
+                                
+                                <p class="media-body pb-1 mb-2 small lh-125 border-bottom border-gray">
+                                    <span class="d-block text-gray-dark">
+                                        <strong>{{ $comment->commentator->name }} replied {{ $comment->created_at->diffForHumans() }} </strong>
+                                    
+                                        @can ('destroy', $comment) {{-- User needs to be the author from the comment. --}}
+                                            <span class="float-right">
+                                                <a href="{{ route('comment.delete', $comment) }}" class="text-danger">
+                                                    <i class="fe fe-trash-2"></i>
+                                                </a>
+                                            </span>
+                                        @endcan 
+                                    </span>
+                                    
+                                    {{ $comment->comment }}
+                                </p>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
                 <hr class="mt-2 mb-2">
 
-                <form action="" class="card card-body" method="POST"> {{-- Comment form --}}
+                <form action="{{ route('helpdesk.ticket.comment', $ticket) }}" class="card card-body" id="comment" method="POST"> {{-- Comment form --}}
                     @csrf {{-- Form field protection --}}
 
                     <div class="media">
@@ -39,8 +67,8 @@
                             </div>
 
                             <div class="form-group mb-0">
-                                <button type="submit" class="rounded btn btn-light">Close ticket</button>
-                                <button type="submit" class="rounded btn btn-success" value="delete">Comment</button>
+                                <a href="" class="rounded btn light">Close ticket</a>
+                                <button type="submit" form="comment" class="rounded btn btn-success">Comment</button>
                             </div>
                         </div>
                     </div>
@@ -49,7 +77,7 @@
 
             <div class="col-md-4"> {{-- Sidebar --}}
                 <div class="card p-2 card-body">
-                    <table class="table mb-0 table-hover table-sm">
+                    <table class="table table-borderless mb-0 table-hover table-sm">
                         <thead>
                             <tr>
                                 <th class="border-top-0">&nbsp;</th>

@@ -4,7 +4,15 @@ namespace Compass\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Compass\Models\Ticket;
+use Compass\Policies\{TicketPolicy, CommentPolicy};
+use BeyondCode\Comments\Comment;
 
+/**
+ * Class AuthServiceProvider
+ * 
+ * @package Compass\Providers
+ */
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +21,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Compass\Model' => 'Compass\Policies\ModelPolicy',
+        Ticket::class   => TicketPolicy::class, 
+        Comment::class  => CommentPolicy::class,
     ];
 
     /**
@@ -21,10 +30,8 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->registerPolicies();
-
-        //
     }
 }

@@ -94,6 +94,7 @@ class IndexController extends Controller
      */
     public function show(Ticket $ticket): View 
     {
-        return view('backend.helpdesk.tickets.show', compact('ticket'));
+        $comments = $ticket->comments()->orderBy('created_at', 'DESC')->get();
+        return view('backend.helpdesk.tickets.show', compact('ticket', 'comments'));
     } 
 }

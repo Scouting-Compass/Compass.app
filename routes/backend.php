@@ -24,6 +24,8 @@ Route::get('helpdesk/ticket/create', 'Backend\Web\Helpdesk\IndexController@creat
 Route::get('helpdesk/ticket/show/{ticket}', 'Backend\Web\Helpdesk\IndexController@show')->name('helpdesk.ticket.show');
 Route::post('helpdesk/ticket/create', 'Backend\Web\Helpdesk\IndexController@store')->name('helpdesk.ticket.store');
 
+Route::post('helpdesk/ticket/comment/{ticket}', 'Backend\Web\Helpdesk\CommentController@store')->name('helpdesk.ticket.comment');
+
 // Helpdesk categories routes
 Route::get('helpdesk/categories', 'Backend\Web\Helpdesk\Config\CategoryController@index')->name('helpdesk.categories.index');
 Route::get('helpdesk/categories/create', 'Backend\Web\Helpdesk\Config\CategoryController@create')->name('helpdesk.categories.create');
