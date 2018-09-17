@@ -3,9 +3,12 @@
 namespace Compass\Http\Controllers\Backend\Web;
 
 use Compass\User;
-use Illuminate\Http\Request;
+use Illuminate\Http\{Request, RedirectResponse};
 use Compass\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
+use Compass\Models\Role;
+use Compass\Http\Requests\Account\InformationValidator;
+use App\Http\Controllers\UserController;
 
 /**
  * Class UsersController 
@@ -56,12 +59,35 @@ class UsersController extends Controller
     /**
      * Create view for an new user in the application. 
      * 
+     * @param  Role $role The resource model for the ACL roles storage. 
      * @return View
      */
-    public function create(): View
+    public function create(Role $role): View
     {
-        dd('TODO');
-        return view();
+        $roles = $role->pluck('name', 'name'); // Duplicate attribute because the value in the form is not an integer.
+        return view('backend.users.create', compact('roles'));
+    }
+
+    /**
+     * Create a new user in the storage 
+     * 
+     * @todo Implement mail notification to the user. 
+     * 
+     * @param  InformationValidator $input The form request class that handles all the validation logic.
+     * @param  User                 $user  The resource model from the storage.
+     * @return RedirectResponse
+     */
+    public function store(InformationValidator $input, User $user): RedirectResponse 
+    {
+        if ($user = $user->create($input->all())->assignRole($input->role)) {
+            if (! is_null($input->email_verified_at)) { // User needs to verify his/her user account.
+                $user->update(['email_verified_at' => now()]);
+            } 
+
+            $this->flashSuccess("There is created a login for {$user->name}");
+        } 
+
+        return redirect()->route('users.create');
     }
 
     /**

@@ -96,6 +96,7 @@
         </div>
 
         <div class="card card-body">
+            <h6 class="border-bottom border-gray pb-1 mb-3">Recent created tickets</h6>
         </div>
     </div>
 @endsection
